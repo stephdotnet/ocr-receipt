@@ -36,7 +36,6 @@ return [
         'aws' => [
             'key' => env('AWS_TEXTRACT_ACCESS_KEY_ID'),
             'secret' => env('AWS_TEXTRACT_SECRET_ACCESS_KEY'),
-        ]
-    ]
-
+        ],
+    ],
 ];

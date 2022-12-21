@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\AwsOCR;
-use App\Services\OCRManager;
+use App\Services\OCR\OCRManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton(OCRManager::class, function ($app) {
+            return new OCRManager($app);
+        });
     }
 
     /**
