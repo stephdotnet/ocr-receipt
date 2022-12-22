@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * Class OCR
- * @package App\Facades
+ *
  * @method static array analyzeExpense(string $fileContent)
  */
 class OCR extends Facade
