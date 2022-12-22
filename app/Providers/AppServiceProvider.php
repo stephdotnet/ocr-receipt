@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\AwsOCR;
-use App\Services\OCRManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
