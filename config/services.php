@@ -38,5 +38,4 @@ return [
             'secret' => env('AWS_TEXTRACT_SECRET_ACCESS_KEY'),
         ],
     ],
-
 ];
