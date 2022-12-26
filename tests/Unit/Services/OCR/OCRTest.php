@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Services;
 
-use App\Services\OCR\AwsOCR;
+use App\Services\OCR\Drivers\Aws\AwsOCR;
 use App\Services\OCR\OCRManager;
 use Tests\TestCase;
 
