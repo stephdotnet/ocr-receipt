@@ -11,3 +11,4 @@ CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 
 core.autocrlf=true
+core.fileMode=false
