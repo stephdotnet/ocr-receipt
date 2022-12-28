@@ -2,6 +2,7 @@
 
 namespace App\Services\OCR\Drivers\Aws;
 
+use App\Services\OCR\OCRDriverInterface;
 use App\Services\OCR\Traits\FileHashedContent;
 
 class AwsOCRMock implements OCRDriverInterface
