@@ -2,7 +2,7 @@
 
 namespace Tests\Traits;
 
-use App\Services\OCR\AwsOCR;
+use App\Services\OCR\Drivers\Aws\AwsOCR;
 use Aws\Result;
 use Aws\Textract\TextractClient;
 use Mockery;
