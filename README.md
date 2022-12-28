@@ -9,4 +9,6 @@ This project stands as a kickoff for OCR parsing purpose.
 
 ## Testing
 
+[![codecov](https://codecov.io/gh/stephdotnet/ocr-receipt/branch/main/graph/badge.svg?token=BQZ9TWVEH8)](https://codecov.io/gh/stephdotnet/ocr-receipt)
+
 - Run test suites with `php artisan test`
