@@ -25,7 +25,7 @@ class AwsOCRTest extends TestCase
     use AwsOCRMock;
 
     /**
-     * @covers \App\Services\OCR\Drivers\Aws\AwsOCR::analyzeExpense
+     * @covers AwsOCR::analyzeExpense
      */
     public function test_analyze_expense()
     {
@@ -67,4 +67,3 @@ class AwsOCRTest extends TestCase
         $this->assertEquals($responseAssertion, $response);
     }
 }
-
