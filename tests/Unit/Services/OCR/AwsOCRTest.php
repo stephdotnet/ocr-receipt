@@ -25,7 +25,7 @@ class AwsOCRTest extends TestCase
     use AwsOCRMock;
 
     /**
-     * @covers AwsOCR::analyzeExpense
+     * @covers \App\Services\OCR\Drivers\Aws\AwsOCR::analyzeExpense
      */
     public function test_analyze_expense()
     {
