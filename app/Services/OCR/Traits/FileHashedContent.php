@@ -16,7 +16,7 @@ trait FileHashedContent
         return Storage::get($this->getFileHashPath($this->getHash($fileContent)));
     }
 
-    private function getHash(string $fileContent): string
+    public function getHash(string $fileContent): string
     {
         return md5($fileContent);
     }
