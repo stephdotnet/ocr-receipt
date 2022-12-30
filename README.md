@@ -6,6 +6,7 @@ This project stands as a kickoff for OCR parsing purpose.
 - Copy `.env.example` to `.env`
 - Run `php artisan key:generate`
 - Run `php artisan storage:link`
+- Run `npm install && npm run dev`
 
 ## Testing
 
