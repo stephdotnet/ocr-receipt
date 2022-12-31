@@ -1,15 +1,15 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
 }
 // @todo add variables
 // @todo to remove
 .TourCard {
-    img {
-        width: 100%;
-        height: 5rem;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+  }
 }

@@ -1,7 +1,7 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import Home from "@pages/Home";
-import Layout from "@layouts/Layout";
+import Home from '@pages/Home';
+import Layout from '@layouts/Layout';
 
 export interface headerNavItem {
   path: string;
@@ -10,48 +10,51 @@ export interface headerNavItem {
 
 const useRouter = () => {
   const pages = {
-    'home': {
-      'path': '/',
-      'slug': 'home'
+    home: {
+      path: '/',
+      slug: 'home',
     },
-    'tours': {
-      'path': '/tours',
-      'slug': 'tours'
-    }
-  }
-
-  const isActive = (locationPathname: string, toPathname: string) => {
-    return locationPathname === toPathname ||
-      (locationPathname.startsWith(toPathname) &&
-        locationPathname.charAt(toPathname.length) === "/");
+    tours: {
+      path: '/tours',
+      slug: 'tours',
+    },
   };
 
-  const router = createBrowserRouter([{
-    element: <Layout/>,
-    children: [
-      {
-        path: pages.home.path,
-        element: <Home/>
-      }
-    ]
-  }]);
+  const isActive = (locationPathname: string, toPathname: string) => {
+    return (
+      locationPathname === toPathname ||
+      (locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === '/')
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: pages.home.path,
+          element: <Home />,
+        },
+      ],
+    },
+  ]);
 
   const headerNav: headerNavItem[] = [
     {
       path: pages.home.path,
-      label: "Home"
+      label: 'Home',
     },
     {
       path: pages.tours.path,
-      label: "Tours"
-    }
-  ]
+      label: 'Tours',
+    },
+  ];
 
   return {
     router,
     headerNav,
-    isActive
+    isActive,
   };
-}
+};
 
 export default useRouter;
