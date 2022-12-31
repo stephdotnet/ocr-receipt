@@ -2,7 +2,6 @@ import {createBrowserRouter} from "react-router-dom";
 
 import Home from "@pages/Home";
 import Layout from "@layouts/Layout";
-import Tours from "@pages/Tours"
 
 export interface headerNavItem {
   path: string;
@@ -33,10 +32,6 @@ const useRouter = () => {
       {
         path: pages.home.path,
         element: <Home/>
-      },
-      {
-        path: pages.tours.path,
-        element: <Tours/>
       }
     ]
   }]);
