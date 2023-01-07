@@ -2,6 +2,11 @@
 
 # Todo
 
+Infra
+
+- Docker composer
+- Codespace ready
+
 Backend
 
 - Api endpoints & documentation
@@ -11,5 +16,3 @@ Frontend
 
 - Pre-rendering
 - Authentication layer
-- Linter
-- *.module.css

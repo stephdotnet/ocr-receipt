@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Home from '@pages/Home';
+import Home from '@/pages/home/Home';
 import Layout from '@layouts/Layout';
+import ErrorPage from '@/pages/ErrorPage';
 
 export interface headerNavItem {
   path: string;
@@ -36,6 +37,7 @@ const useRouter = () => {
           element: <Home />,
         },
       ],
+      errorElement: <ErrorPage />,
     },
   ]);
 
