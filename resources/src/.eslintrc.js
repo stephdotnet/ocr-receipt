@@ -1,6 +1,5 @@
 module.exports = {
   extends: [
-    // By extending from a plugin config, we can get recommended rules without having to add them manually.
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:import/recommended',
@@ -12,7 +11,6 @@ module.exports = {
   ],
   settings: {
     react: {
-      // Tells eslint-plugin-react to automatically detect the version of React to use.
       version: 'detect',
     },
     // Tells eslint how to resolve imports
