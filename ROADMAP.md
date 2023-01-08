@@ -15,4 +15,6 @@ Backend
 Frontend
 
 - Pre-rendering
+- Extract prettier import ordering rules from tsconfig.json aliases
+- Extract vite.config.ts aliases ton tsconfig.json aliases
 - Authentication layer
