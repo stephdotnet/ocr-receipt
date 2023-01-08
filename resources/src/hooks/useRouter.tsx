@@ -1,8 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-
+import ErrorPage from '@/pages/ErrorPage';
 import Home from '@/pages/home/Home';
 import Layout from '@layouts/Layout';
-import ErrorPage from '@/pages/ErrorPage';
 
 export interface headerNavItem {
   path: string;

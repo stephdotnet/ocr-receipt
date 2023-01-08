@@ -1,7 +1,6 @@
-import { Box, Card, Typography } from '@mui/material';
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { Box, Typography } from '@mui/material';
 import classes from './fileLoader.module.scss';
 
 interface FileLoaderProps {
@@ -18,7 +17,7 @@ const FileLoader: React.FC<FileLoaderProps> = ({ setFile }) => {
   }, [acceptedFiles, setFile]);
 
   const getFileLoaderClassNames = () => {
-    let classesCollection: string[] = [classes.dropzone];
+    const classesCollection: string[] = [classes.dropzone];
     if (isFocused) {
       classesCollection.push(classes.focused);
     }

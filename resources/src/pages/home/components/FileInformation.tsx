@@ -1,5 +1,5 @@
-import { useHumanReadableFileSize } from '@/hooks/useHumanReadableFileSize';
 import Chip from '@mui/material/Chip';
+import { useHumanReadableFileSize } from '@/hooks/useHumanReadableFileSize';
 
 type FileInformationProps = {
   filename: string;

@@ -1,8 +1,7 @@
-import FileLoader from '@/components/FileLoader/FileLoader';
-import { useHumanReadableFileSize } from '@/hooks/useHumanReadableFileSize';
-import { Box, Card, Chip, Container, Typography } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
 import { useState } from 'react';
+import { Box, Button, Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
+import FileLoader from '@/components/FileLoader/FileLoader';
 import FileInformation from './components/FileInformation';
 
 const Home = () => {
@@ -10,12 +9,6 @@ const Home = () => {
 
   const handleDelete = () => {
     setFile(null);
-  };
-
-  const getFileLabel = () => {
-    const fileSize = file ? file?.size / 1024 : 0;
-
-    return `${file?.name} (${fileSize})`;
   };
 
   return (
@@ -27,8 +20,11 @@ const Home = () => {
       </Box>
       <Grid mdOffset={2} smOffset={0} md={8} sm={12}>
         <FileLoader setFile={setFile} />
-        <Box marginTop={2}>
+        <Box marginY={2}>
           {file && <FileInformation filename={file.name} filesize={file.size} handleDelete={handleDelete} />}
+        </Box>
+        <Box marginY={2}>
+          <Button></Button>
         </Box>
       </Grid>
     </Container>

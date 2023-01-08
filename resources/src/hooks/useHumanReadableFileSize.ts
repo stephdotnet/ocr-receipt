@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 export function useHumanReadableFileSize(size: number): string {
   return useMemo(() => {
