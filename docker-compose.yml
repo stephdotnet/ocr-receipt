@@ -6,9 +6,11 @@ services:
     ports:
       - 80:80
     volumes:
-      - .:/var/www/html
+      - .:/var/www
+      - ./public:/var/www/html      
     depends_on:
       - mysql
+    working_dir: /var/www
   mysql:
     image: mysql:8.0
     environment:

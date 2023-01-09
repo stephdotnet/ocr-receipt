@@ -5,4 +5,7 @@ stop:
 	docker-compose down
 
 php:
-	docker-compose exec -it web bash
+	docker-compose exec web bash
+
+setup:
+	docker-compose exec web chmod +x setup.sh && ./setup.sh
