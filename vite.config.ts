@@ -1,6 +1,6 @@
-import { defineConfig, loadEnv } from 'vite';
-import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
+import laravel from 'laravel-vite-plugin';
+import { defineConfig, loadEnv } from 'vite';
 import makeTokens from './resources/src/assets/css/tokens';
 
 const path = require('path');
@@ -30,11 +30,12 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'resources', 'src'),
-        '@pages': path.resolve(__dirname, 'resources', 'src', 'pages'),
-        '@css': path.resolve(__dirname, 'resources', 'src', 'assets', 'css'),
-        '@hooks': path.resolve(__dirname, 'resources', 'src', 'hooks'),
         '@components': path.resolve(__dirname, 'resources', 'src', 'components'),
+        '@css': path.resolve(__dirname, 'resources', 'src', 'assets', 'css'),
         '@layouts': path.resolve(__dirname, 'resources', 'src', 'layouts'),
+        '@hooks': path.resolve(__dirname, 'resources', 'src', 'hooks'),
+        '@pages': path.resolve(__dirname, 'resources', 'src', 'pages'),
+        '@utils': path.resolve(__dirname, 'resources', 'src', 'utils'),
       },
     },
     server: {

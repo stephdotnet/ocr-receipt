@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import classes from './fileLoader.module.scss';
 
@@ -11,6 +12,7 @@ const FileLoader: React.FC<FileLoaderProps> = ({ setFile }) => {
   const { acceptedFiles, getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } = useDropzone({
     accept: { 'image/*': [] },
   });
+  const { t } = useTranslation();
 
   useEffect(() => {
     setFile(acceptedFiles[0]);
@@ -35,7 +37,7 @@ const FileLoader: React.FC<FileLoaderProps> = ({ setFile }) => {
     <Box className={classes.FileLoaderBox}>
       <Box {...getRootProps()} className={getFileLoaderClassNames()}>
         <input {...getInputProps()} />
-        <Typography>Charger un fichier</Typography>
+        <Typography>{t('components.fileLoader.load_a_file')}</Typography>
       </Box>
     </Box>
   );

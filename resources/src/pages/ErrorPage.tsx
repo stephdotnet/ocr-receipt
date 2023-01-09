@@ -10,8 +10,8 @@ function ErrorPage() {
 
   return (
     <>
+      <Header />
       <Container>
-        <Header />
         <Box>
           <Typography variant="h1" textAlign="center">
             {error.status}

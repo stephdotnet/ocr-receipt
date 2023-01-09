@@ -5,6 +5,12 @@ module.exports = {
   singleQuote: true,
   printWidth: 120,
   bracketSpacing: true,
-  importOrder: ['^react(.*)', '<THIRD_PARTY_MODULES>', '^(@/|@hooks/|@css/|@pages/|@components/|@layouts/)', '^[./]'],
+  importOrder: [
+    '^react(.*)',
+    '<THIRD_PARTY_MODULES>',
+    '^(@/|@hooks/|@pages/|@components/|@layouts/|@utils/)',
+    '^[./]',
+    '^(.*).(s)*css',
+  ],
   importOrderSortSpecifiers: true,
 };

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ErrorPage from '@/pages/ErrorPage';
 import Home from '@/pages/home/Home';
+import i18n from '@/utils/localisation/i18n';
 import Layout from '@layouts/Layout';
 
 export interface headerNavItem {
@@ -15,8 +16,8 @@ const useRouter = () => {
       slug: 'home',
     },
     tours: {
-      path: '/tours',
-      slug: 'tours',
+      path: '/history',
+      slug: 'history',
     },
   };
 
@@ -43,11 +44,11 @@ const useRouter = () => {
   const headerNav: headerNavItem[] = [
     {
       path: pages.home.path,
-      label: 'Home',
+      label: i18n.t('pages.home'),
     },
     {
       path: pages.tours.path,
-      label: 'Tours',
+      label: i18n.t('pages.history'),
     },
   ];
 

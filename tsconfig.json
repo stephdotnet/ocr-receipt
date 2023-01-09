@@ -21,12 +21,9 @@
       "@css/*": ["./resources/src/assets/css/*"],
       "@pages/*": ["./resources/src/pages/*"],
       "@components/*": ["./resources/src/components/*"],
-      "@layouts/*": ["./resources/src/layouts/*"]
+      "@layouts/*": ["./resources/src/layouts/*"],
+      "@utils/*": ["./resources/src/utils/*"]
     }
   },
-  "include": [
-    "resources/src",
-    "declaration.d.ts",
-    "resources/src/.prettierrc.js"
-  ]
+  "include": ["resources/src", "declaration.d.ts", ".prettierrc.js"]
 }
