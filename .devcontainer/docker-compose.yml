@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    image: thecodingmachine/php:8.2-v4-apache
+    ports:
+      - 80:80
+    volumes:
+      - ..:/var/www    
+    depends_on:
+      - mysql
+    working_dir: /var/www
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/public
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: main
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025      

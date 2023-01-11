@@ -4,8 +4,10 @@
 
 Infra
 
-- Docker composer
+- ~~Docker compose~~
 - Codespace ready
+  - ~~Make it work~~
+  - Auto install
 
 Backend
 

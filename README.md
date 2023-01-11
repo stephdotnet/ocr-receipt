@@ -4,6 +4,21 @@ This project stands as a kickoff for OCR parsing purpose.
 
 ## Installation
 
+### Option 1 : Run in github codespace
+
+- Run `make setup-codespace`
+
+### Option 2 : Run locally
+
+The app is shipped with a `docker-compose` stack so you can run the app this way:
+
+- Run `make setup`
+- Run `npm install && npm run dev` or `npm run build`
+
+### Option 3 : Manual setup
+
+If you already have a docker stack, you can run the following commands :
+
 - Copy `.env.example` to `.env`
 - Run `php artisan key:generate`
 - Run `php artisan storage:link`
