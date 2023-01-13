@@ -4,7 +4,11 @@ This project stands as a kickoff for OCR parsing purpose.
 
 ## Installation
 
-### Option 1 : Run in github codespace
+### Option 1a : Run in github codespace (auto)
+
+This app is codespace ready (thanks to the .devcontainer/devcontainer.json file). It will automatically setup the codespace and forward the app to the port 80. If it doesn't you still can run the make commande manually (see option 1b)
+
+### Option 1b : Run in github codespace (manual)
 
 - Run `make setup-codespace`
 
