@@ -7,7 +7,7 @@ Infra
 - ~~Docker compose~~
 - Codespace ready
   - ~~Make it work~~
-  - Auto install
+  - ~~Auto install~~
 
 Backend
 
@@ -18,5 +18,5 @@ Frontend
 
 - Pre-rendering
 - Extract prettier import ordering rules from tsconfig.json aliases
-- Extract vite.config.ts aliases ton tsconfig.json aliases
+- Extract vite.config.ts aliases from tsconfig.json aliases
 - Authentication layer
