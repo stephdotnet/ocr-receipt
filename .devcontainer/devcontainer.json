@@ -27,9 +27,7 @@
         80
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": [
-        "./.devcontainer/setup.sh && ./.devcontainer/setup-codespace.sh"
-    ],
+    "postCreateCommand": "./.devcontainer/setup.sh && ./.devcontainer/setup-codespace.sh",
     "portsAttributes": {
         "80": {
             "label": "HTTP"
