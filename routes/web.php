@@ -18,4 +18,5 @@ Route::get('/{path}', function () {
 })
 ->where([
     'path' => '.*',
-]);
+])
+->name('app');
