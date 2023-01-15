@@ -8,6 +8,7 @@ Infra
 - Codespace ready
   - ~~Make it work~~
   - ~~Auto install~~
+  - Hot reload module configuration
 
 Backend
 

@@ -30,7 +30,7 @@ The app is shipped with a `docker-compose` stack so you can run the app this way
 ### Post install
 
 - It's suggested to have a look at the `.env` file, in order to check that everything is ok
-- Run `npm run dev` to start working
+- Run `npm run dev` to start working (not codespace ready yet)
 
 ## Testing
 

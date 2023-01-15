@@ -1,6 +1,6 @@
 <?php
 
-namespace Services\OCR;
+namespace Tests\Unit\Services\OCR;
 
 use App\Services\OCR\Traits\FileHashedContent;
 use Illuminate\Foundation\Testing\WithFaker;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Services;
+namespace Tests\Unit\Services\OCR;
 
 use App\Services\OCR\Drivers\Aws\AwsOCRMock;
 use App\Services\OCR\Traits\FileHashedContent;
