@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Services;
+namespace Tests\Unit\Services\OCR;
 
 use App\Facades\OCR;
 use App\Services\OCR\Drivers\Aws\AwsOCR;
