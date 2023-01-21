@@ -3,6 +3,7 @@
 namespace App\Services\OCR\Drivers\Aws;
 
 use App\Services\OCR\OCRDriverInterface;
+use App\Services\OCR\OCRResponse;
 use App\Services\OCR\Traits\FileHashedContent;
 use Aws\Credentials\Credentials;
 use Aws\Textract\TextractClient;
@@ -11,10 +12,13 @@ class AwsOCR implements OCRDriverInterface
 {
     use FileHashedContent;
 
-    public function analyzeExpense(string $fileContent): array
+    public function analyzeExpense(string $fileContent): OCRResponse
     {
         if ($response = $this->getContentFromHash($fileContent)) {
-            return json_decode($response, true);
+            return new OCRResponse(
+                json_decode($response, true),
+                $this->getHash($fileContent)
+            );
         }
 
         $response = $this->getClient()->analyzeExpense([
@@ -24,12 +28,11 @@ class AwsOCR implements OCRDriverInterface
             'FeatureTypes' => ['TABLES', 'FORMS'],
         ]);
 
-        $this->putContentToHash(
-            $this->getHash($fileContent),
-            json_encode($response->toArray())
-        );
+        $hash = $this->getHash($fileContent);
 
-        return $response->toArray();
+        $this->putContentToHash($hash, json_encode($response->toArray()));
+
+        return new OCRResponse($response->toArray(), $hash);
     }
 
     public function getClient(): TextractClient

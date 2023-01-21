@@ -25,7 +25,7 @@ class AwsOCRMockTest extends TestCase
     {
         $response = (new AwsOCRMock())->analyzeExpense('test');
 
-        $this->assertEquals([], $response);
+        $this->assertEquals([], $response->data);
     }
 
     public function test_analyze_expense_uses_content_from_hash()
@@ -37,6 +37,6 @@ class AwsOCRMockTest extends TestCase
 
         $response = (new AwsOCRMock())->analyzeExpense('test');
 
-        $this->assertEquals($responseAssertion, $response);
+        $this->assertEquals($responseAssertion, $response->data);
     }
 }

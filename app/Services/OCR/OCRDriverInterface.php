@@ -4,5 +4,5 @@ namespace App\Services\OCR;
 
 interface OCRDriverInterface
 {
-    public function analyzeExpense(string $fileContent): array;
+    public function analyzeExpense(string $fileContent): OCRResponse;
 }
