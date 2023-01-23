@@ -16,7 +16,7 @@ class StoreOCRScanRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'hash' => $this->getHash($this->file('file')),
+            'hash' => $this->getHash($this->file('file')->get()),
         ]);
     }
 
@@ -31,9 +31,9 @@ class StoreOCRScanRequest extends FormRequest
             'file' => [
                 'required',
                 'file',
-                Rule::unique('ocr_scans')->where(function ($query) {
-                    return $query->where('hash', $this->hash);
-                }),
+            ],
+            'hash' => [
+                Rule::unique('ocr_scans', 'hash'),
             ],
         ];
     }

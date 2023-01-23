@@ -20,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OCRManager::class, function ($app) {
             return new OCRManager($app);
         });
+
+        if ($this->app->environment(['local'])) {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**
