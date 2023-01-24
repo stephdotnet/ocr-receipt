@@ -76,8 +76,6 @@ class OCRScanController extends TestCase
         ]);
     }
 
-    // public function test_it_can_list_all_ocr_scans()
-
     protected function postFakeData($options = []): \Illuminate\Testing\TestResponse
     {
         $fakeImage = Arr::get($options, 'file', UploadedFile::fake()->image('receipt.jpg'));
@@ -88,4 +86,33 @@ class OCRScanController extends TestCase
             'file' => $fakeImage,
         ]);
     }
+
+    public function test_it_can_list_all_ocr_scans() {
+        OCRScan::factory(10)->create();
+
+        $this->getJson(route('ocr-scans.index'))
+            ->assertOk()
+            ->assertJsonStructure([
+                'data' => [
+                    '*' => [
+                        'id',
+                        'hash',
+                        'OCRData',
+                        'created_at',
+                    ],
+                ],
+            ])            
+            ->assertJsonStructure([
+                'meta' => [
+                    'current_page',
+                    'from',
+                    'last_page',
+                    'path',
+                    'per_page',
+                    'to',
+                    'total',
+                ],
+            ])
+            ->assertJsonCount(10, 'data');
+    }    
 }
