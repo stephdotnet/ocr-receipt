@@ -9,6 +9,7 @@ use App\Http\Resources\OCRScanResource;
 use App\Models\OCRScan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class OCRScanController extends Controller
 {
@@ -19,6 +20,11 @@ class OCRScanController extends Controller
      */
     public function index()
     {
+        $queryBuilder = QueryBuilder::for(OCRScan::class)
+            ->allowedFilters(['hash'])
+            ->allowedSorts(['created_at']);
+
+        return OCRScanResource::collection($queryBuilder->paginate());
     }
 
     /**
