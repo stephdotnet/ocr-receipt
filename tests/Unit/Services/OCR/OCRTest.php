@@ -6,6 +6,7 @@ use App\Facades\OCR;
 use App\Services\OCR\Drivers\Aws\AwsOCR;
 use App\Services\OCR\Drivers\Aws\AwsOCRMock;
 use App\Services\OCR\OCRManager;
+use App\Services\OCR\OCRResponse;
 use Illuminate\Support\Facades\Config;
 use Tests\TestCase;
 
@@ -37,16 +38,16 @@ class OCRTest extends TestCase
 
         $awsOcr = \Mockery::mock(AwsOCR::class)->makePartial();
         $awsOcr->shouldReceive('getMock')
-            ->andReturn($awsOcrMock)
-            ->shouldReceive('analyzeExpense')
-            ->andReturn($expectedResponse);
+            ->andReturn($awsOcrMock);
+        $awsOcr->shouldReceive('analyzeExpense')
+            ->andReturn(new OCRResponse($expectedResponse, 'hash'));
 
         OCR::partialMock()
             ->shouldReceive('driver')
             ->andReturn($awsOcr);
 
         $response = OCR::analyzeExpense('test');
-        $this->assertEquals($expectedResponse, $response);
+        $this->assertEquals($expectedResponse, $response->data);
     }
 
     public function test_mock_class_called_if_ocr_configuration_is_mocked()
@@ -57,18 +58,18 @@ class OCRTest extends TestCase
         $awsOcrMock = \Mockery::mock(AwsOCRMock::class)->makePartial();
         $awsOcrMock
             ->shouldReceive('analyzeExpense')
-            ->andReturn($expectedResponse);
+            ->andReturn(new OCRResponse($expectedResponse, 'hash'));
 
         $awsOcr = \Mockery::mock(AwsOCR::class)->makePartial();
         $awsOcr->shouldReceive('getMock')
-            ->andReturn($awsOcrMock)
-            ->shouldNotReceive('analyzeExpense');
+            ->andReturn($awsOcrMock);
+        $awsOcr->shouldNotReceive('analyzeExpense');
 
         OCR::partialMock()
             ->shouldReceive('driver')
             ->andReturn($awsOcr);
 
         $response = OCR::analyzeExpense('test');
-        $this->assertEquals($expectedResponse, $response);
+        $this->assertEquals($expectedResponse, $response->data);
     }
 }

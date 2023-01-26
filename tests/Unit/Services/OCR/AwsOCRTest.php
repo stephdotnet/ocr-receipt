@@ -37,7 +37,7 @@ class AwsOCRTest extends TestCase
             $this->faker->image()
         );
 
-        $this->assertEquals($mockResponse, $response);
+        $this->assertEquals($mockResponse, $response->data);
     }
 
     public function test_get_mock_returns_valid_class()
@@ -64,6 +64,6 @@ class AwsOCRTest extends TestCase
 
         $response = $awsOcr->analyzeExpense('test');
 
-        $this->assertEquals($responseAssertion, $response);
+        $this->assertEquals($responseAssertion, $response->data);
     }
 }

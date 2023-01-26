@@ -12,7 +12,9 @@ Infra
 
 Backend
 
-- Api endpoints & documentation
+- Api
+  - endpoints
+  - documentation
 - Statefull authentication : https://laravel.com/docs/9.x/sanctum
 
 Frontend
@@ -21,3 +23,4 @@ Frontend
 - Extract prettier import ordering rules from tsconfig.json aliases
 - Extract vite.config.ts aliases from tsconfig.json aliases
 - Authentication layer
+- Testing
