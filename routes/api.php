@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('ocr-scans', OCRScanController::class)
+Route::apiResource('ocr-scans', OCRScanController::class)
     ->parameter('ocr-scans', 'OCRScan')
     ->except(['update']);

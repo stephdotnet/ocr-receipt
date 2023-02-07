@@ -4,7 +4,8 @@ This project stands as a kickoff for OCR parsing purpose.
 
 ## Installation
 
-Prerequisite: 
+Prerequisite:
+
 - Docker needs to be installed on your machine
 
 ### Option 1a : Run in github codespace (auto)
@@ -14,6 +15,7 @@ This app is codespace ready (thanks to the .devcontainer/devcontainer.json file)
 ### Option 1b : Run in github codespace (manual)
 
 In case the postCreateCommand failed you can still run the setup manually
+
 - Run `./.devcontainer/setup.sh && ./.devcontainer/setup-codespace.sh`
 
 ### Option 2a : Run locally via Makefile (linux/mac OS)
@@ -24,7 +26,7 @@ The app is shipped with a `docker-compose` stack so you can run the app this way
 
 ### Option 2b : Run locally without Makefile (Windows)
 
-- Run `docker-compose -f .devcontainer/docker-compose.yml up -d` 
+- Run `docker-compose -f .devcontainer/docker-compose.yml up -d`
 - Run `docker-compose -f $(DOCKER_COMPOSE_CONF) exec web .devcontainer/setup.sh` to run the setup
 
 ### Post install
@@ -37,6 +39,10 @@ The app is shipped with a `docker-compose` stack so you can run the app this way
 [![codecov](https://codecov.io/gh/stephdotnet/ocr-receipt/branch/main/graph/badge.svg?token=BQZ9TWVEH8)](https://codecov.io/gh/stephdotnet/ocr-receipt)
 
 - Run test suites with `php artisan test`
+
+## API Documentation
+
+Generated with [dedoc/scramble](https://github.com/dedoc/scramble) it's available on the `docs/api` route or in [openapi format](./storage/app/public/ocr-openapi.json)
 
 ## Formatting
 

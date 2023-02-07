@@ -28,7 +28,7 @@ class OCRScanController extends TestCase
         $fakeImage = UploadedFile::fake()->image('receipt.jpg');
         $this
             ->postFakeData(['file' => $fakeImage])
-            ->assertOk();
+            ->assertStatus(201);
 
         $this->assertDatabaseHas('ocr_scans', [
             'hash' => $this->getHash($fakeImage->get()),
@@ -39,7 +39,7 @@ class OCRScanController extends TestCase
     {
         $fakeImage = UploadedFile::fake()->image('receipt.jpg');
         $this->postFakeData(['file' => $fakeImage])
-             ->assertOk();
+             ->assertStatus(201);
 
         $this->assertDatabaseCount('ocr_scans', 1);
 
