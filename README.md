@@ -4,13 +4,13 @@ This project stands as a kickoff for OCR parsing purpose.
 
 ## Installation
 
-Prerequisite:
+**Prerequisite:**
 
 - Docker needs to be installed on your machine
 
 ### Option 1a : Run in github codespace (auto)
 
-This app is codespace ready (thanks to the .devcontainer/devcontainer.json file). It will automatically setup the codespace and forward the app to the port 80. If it doesn't you still can run the make commande manually (see option 1b)
+This app is codespace ready (thanks to the `.devcontainer/devcontainer.json` file). It will automatically setup the codespace and forward the app to the port `80`. If it doesn't you still can run the make commande manually (see option 1b)
 
 ### Option 1b : Run in github codespace (manual)
 
@@ -42,7 +42,7 @@ The app is shipped with a `docker-compose` stack so you can run the app this way
 
 ## API Documentation
 
-Generated with [dedoc/scramble](https://github.com/dedoc/scramble) it's available on the `docs/api` route or in [openapi format](./storage/app/public/ocr-openapi.json)
+Generated with [dedoc/scramble](https://github.com/dedoc/scramble) it's available on the `docs/api` route or in [openapi format](public/ocr-openapi.json)
 
 ## Formatting
 

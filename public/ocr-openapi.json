@@ -1,0 +1,168 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Laravel", "version": "0.0.1" },
+  "servers": [{ "url": "http://ocr.localhost/api" }],
+  "paths": {
+    "/ocr-scans": {
+      "get": {
+        "summary": "Display a listing of the resource",
+        "tags": ["OCRScan"],
+        "responses": {
+          "200": {
+            "description": "Array of `OCRScanResource`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/OCRScanResource" } }
+                  },
+                  "required": ["data"]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Store a newly created resource in storage",
+        "tags": ["OCRScan"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "file": { "type": "string" }, "hash": { "type": "string" } },
+                "required": ["file"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "`OCRScanResource`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "data": { "$ref": "#/components/schemas/OCRScanResource" } },
+                  "required": ["data"]
+                }
+              }
+            }
+          },
+          "422": { "$ref": "#/components/responses/ValidationException" },
+          "403": { "$ref": "#/components/responses/AuthorizationException" }
+        }
+      }
+    },
+    "/ocr-scans/{OCRScan}": {
+      "get": {
+        "summary": "Display the specified resource",
+        "tags": ["OCRScan"],
+        "parameters": [
+          {
+            "name": "OCRScan",
+            "in": "path",
+            "required": true,
+            "description": "The o c r scan ID",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`OCRScanResource`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "data": { "$ref": "#/components/schemas/OCRScanResource" } },
+                  "required": ["data"]
+                }
+              }
+            }
+          },
+          "404": { "$ref": "#/components/responses/ModelNotFoundException" }
+        }
+      },
+      "delete": {
+        "summary": "Remove the specified resource from storage",
+        "tags": ["OCRScan"],
+        "parameters": [
+          {
+            "name": "OCRScan",
+            "in": "path",
+            "required": true,
+            "description": "The o c r scan ID",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": { "content": { "application/json": { "schema": { "type": "object" } } } },
+        "responses": {
+          "200": { "description": "", "content": { "application/json": { "schema": { "type": "string" } } } },
+          "404": { "$ref": "#/components/responses/ModelNotFoundException" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OCRScanResource": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "hash": { "type": "string" },
+          "OCRData": { "type": "array", "items": { "type": "string" } },
+          "created_at": { "type": ["object", "null"] }
+        },
+        "required": ["id", "hash", "OCRData", "created_at"],
+        "title": "OCRScanResource"
+      }
+    },
+    "responses": {
+      "ValidationException": {
+        "description": "Validation error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": { "type": "string", "description": "Errors overview." },
+                "errors": {
+                  "type": "object",
+                  "description": "A detailed description of each field that failed validation.",
+                  "additionalProperties": { "type": "array", "items": { "type": "string" } }
+                }
+              },
+              "required": ["message", "errors"]
+            }
+          }
+        }
+      },
+      "AuthorizationException": {
+        "description": "Authorization error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string", "description": "Error overview." } },
+              "required": ["message"]
+            }
+          }
+        }
+      },
+      "ModelNotFoundException": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string", "description": "Error overview." } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    }
+  }
+}
