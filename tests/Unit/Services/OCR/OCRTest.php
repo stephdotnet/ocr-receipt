@@ -32,11 +32,11 @@ class OCRTest extends TestCase
         Config::set('services.OCR.mocked', false);
         $expectedResponse = [true];
 
-        $awsOcrMock = \Mockery::mock(AwsOCRMock::class)->makePartial();
+        $awsOcrMock = $this->partialMock(AwsOCRMock::class);
         $awsOcrMock
             ->shouldNotReceive('analyzeExpense');
 
-        $awsOcr = \Mockery::mock(AwsOCR::class)->makePartial();
+        $awsOcr = $this->partialMock(AwsOCR::class);
         $awsOcr->shouldReceive('getMock')
             ->andReturn($awsOcrMock);
         $awsOcr->shouldReceive('analyzeExpense')
@@ -55,12 +55,12 @@ class OCRTest extends TestCase
         Config::set('services.OCR.mocked', true);
         $expectedResponse = [true];
 
-        $awsOcrMock = \Mockery::mock(AwsOCRMock::class)->makePartial();
+        $awsOcrMock = $this->partialMock(AwsOCRMock::class);
         $awsOcrMock
             ->shouldReceive('analyzeExpense')
             ->andReturn(new OCRResponse($expectedResponse, 'hash'));
 
-        $awsOcr = \Mockery::mock(AwsOCR::class)->makePartial();
+        $awsOcr = $this->partialMock(AwsOCR::class);
         $awsOcr->shouldReceive('getMock')
             ->andReturn($awsOcrMock);
         $awsOcr->shouldNotReceive('analyzeExpense');

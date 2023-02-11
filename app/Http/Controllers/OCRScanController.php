@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTransformObjects\ReceiptDto;
+use App\DataTransferObjects\ReceiptDto;
 use App\Facades\OCR;
 use App\Http\Requests\StoreOCRScanRequest;
 use App\Http\Resources\OCRScanResource;
 use App\Models\OCRScan;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Storage;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class OCRScanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -29,42 +26,31 @@ class OCRScanController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreOCRScanRequest  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(StoreOCRScanRequest $request)
+    public function store(StoreOCRScanRequest $request): OCRScanResource
     {
         $OCRResponse = OCR::analyzeExpense($request->file('file')->get());
 
-        $scan = OCRScan::create([
+        $OCRScan = OCRScan::create([
             'hash' => $OCRResponse->hash,
             'data' => (new ReceiptDto($OCRResponse->data))->fromAWStoArray(),
         ]);
 
-        return response()->json(
-            $scan->data
-        );
+        return OCRScanResource::make($OCRScan);
     }
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\OCRScan  $OCRScan
-     * @return \Illuminate\Http\Response
      */
-    public function show(OCRScan $OCRScan)
+    public function show(OCRScan $OCRScan): OCRScanResource
     {
         return OCRScanResource::make($OCRScan);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\OCRScan  $oCRScan
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(OCRScan $OCRScan)
+    public function destroy(OCRScan $OCRScan): JsonResponse
     {
         return response()->json(null, $OCRScan->delete()
             ? JsonResponse::HTTP_NO_CONTENT

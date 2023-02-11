@@ -1,8 +1,8 @@
 <?php
 
-namespace DataTransformObjects;
+namespace DataTransferObjects;
 
-use App\DataTransformObjects\ReceiptDto;
+use App\DataTransferObjects\ReceiptDto;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;

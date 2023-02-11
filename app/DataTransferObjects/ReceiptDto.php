@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataTransformObjects;
+namespace App\DataTransferObjects;
 
 use Illuminate\Support\Arr;
 
